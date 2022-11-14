@@ -6,16 +6,16 @@ class Calculator {
     constructor(previousOperationsText, currentOperationsText) {
         this.previousOperationsText = previousOperationsText;
         this.currentOperationsText = currentOperationsText;
-        this.currentOperations = "";
+        this.digitaAgora = ""; // vai digitar na hora 
     }
     // adiciona numeros a tela
     addDigit(digit) {
-        console.log(digit);
+       // console.log(digit);
         // checa para ver se a op ja tem um ponto 
         if (digit === "." && this.currentOperationsText.innerText.includes(".")) {
             return;
         }
-        this.currentOperations = digit;
+        this.digitaAgora = digit;
         this.updateScreen();
     }
     // processa todos  metotos da calculadora 
@@ -77,7 +77,7 @@ class Calculator {
         previos = null // a de cima e essa é o precessoOperation
     ) {
         if (operationValue === null) {
-            this.currentOperationsText.innerText += this.currentOperations;
+            this.currentOperationsText.innerText += this.digitaAgora;
         } else {
             // checar se o valor é zero e so precisa add o valor para cima
             if (previos === 0) {
